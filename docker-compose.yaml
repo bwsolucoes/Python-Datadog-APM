@@ -14,8 +14,8 @@ services:
       - DD_VERSION=20240614-2056
       - DD_LOGS_INJECTION=true
       - DD_DYNAMIC_INSTRUMENTATION_ENABLED=true
-      - DD_GIT_REPOSITORY_URL="github.com/bwsolucoes/Python-Datadog-APM"
-      - DD_GIT_COMMIT_SHA="5bb58d6d369de467edc59dceeac7241509599e19"
+      - DD_GIT_REPOSITORY_URL=github.com/bwsolucoes/Python-Datadog-APM
+      - DD_GIT_COMMIT_SHA=5bb58d6d369de467edc59dceeac7241509599e19
     depends_on:
       - datadog-agent
 
