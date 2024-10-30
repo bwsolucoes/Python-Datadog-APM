@@ -22,13 +22,16 @@ services:
   datadog-agent:
     image: gcr.io/datadoghq/agent:latest
     environment:
-      - DD_API_KEY=05a14bb585316b2db485180b6718b379
+      - DD_API_KEY=31a267f2581b0bc802203c8133ad8a2f
       - DD_APM_ENABLED=true
       - DD_LOGS_ENABLED=true
       - DD_LOGS_CONFIG_CONTAINER_COLLECT_ALL=true
+      - DD_APM_REPLACE_TAGS=[{"name":"error.stack","pattern":"\\(Array, [\\s\\S]*?, Array\\)","repl":"(Array, [Sensitive Data Redacted], Array"}]
       - DD_PROCESS_AGENT_ENABLED=true
       - DD_APM_NON_LOCAL_TRAFFIC=true
       - DD_HOSTNAME=datadog-agent
     ports:
       - "8126:8126/tcp" # APM
       - "8125:8125/udp" # DogStatsD
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock # Collect logs
