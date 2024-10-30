@@ -11,11 +11,11 @@ services:
       - DD_TRACE_AGENT_PORT=8126
       - DD_ENV=chofs
       - DD_SERVICE=bw-python
-      - DD_VERSION=20240617-1121
+      - DD_VERSION=20241030-1110
       - DD_LOGS_INJECTION=true
       - DD_DYNAMIC_INSTRUMENTATION_ENABLED=true
       - DD_GIT_REPOSITORY_URL=github.com/bwsolucoes/Python-Datadog-APM
-      - DD_GIT_COMMIT_SHA=6ca7a7e09759f559a8a83618ed196f02b2bddae3
+      - DD_GIT_COMMIT_SHA=8cd93796d46297a07e7ada14552f5f83e36c23a2
     depends_on:
       - datadog-agent
 
