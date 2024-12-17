@@ -38,4 +38,6 @@ jobs:
         run: |
           npm install --save-dev @datadog/datadog-ci
           npx @datadog/datadog-ci git-metadata upload
+        env: 
+          DD_API_KEY: fdc8a37c62302a4f4de9f3d76c468c59
         
