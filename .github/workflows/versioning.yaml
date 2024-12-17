@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: node-slim
 
     steps:
       - name: Checkout code
@@ -33,3 +33,9 @@ jobs:
           git add .
           git commit -m "Update docker-compose.yaml with commit SHA ${{ github.sha }} and version $VERSION"
           git push
+
+      - name: Datadog CI test
+        run: |
+          npm install --save-dev @datadog/datadog-ci
+          npx @datadog/datadog-ci git-metadata upload
+        
