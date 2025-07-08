@@ -9,9 +9,10 @@ DynamicInstrumentation.enable()
 patch_all()
 
 # Configure logging
-FORMAT = ('%(asctime)s %(levelname)s [%(name)s] [%(filename)s:%(lineno)d] '
-          '[dd.service=%(dd.service)s dd.env=%(dd.env)s dd.version=%(dd.version)s dd.trace_id=%(dd.trace_id)s dd.span_id=%(dd.span_id)s] '
-          '- %(message)s')
+FORMAT = ('%(message)s')
+# FORMAT = ('%(asctime)s %(levelname)s [%(name)s] [%(filename)s:%(lineno)d] '
+#           '[dd.service=%(dd.service)s dd.env=%(dd.env)s dd.version=%(dd.version)s dd.trace_id=%(dd.trace_id)s dd.span_id=%(dd.span_id)s] '
+#           '- %(message)s')
 logging.basicConfig(format=FORMAT)
 log = logging.getLogger(__name__)
 log.setLevel(logging.INFO)
@@ -29,13 +30,16 @@ class CustomClass:
     def process_data(self, data):
         log.info(f"Processing data: {data}...")
         processed_data = data.upper()
-        log.info(f"Processed data: {processed_data}")
+        log.info(f"[Scizor:Farigiraf] Processed data: {processed_data}")
         return processed_data
 
     def calculate(self, a, b):
         log.info(f"Calculating the sum of {a} and {b}")
         result = a + b
-        log.info(f"Calculation result: {result}")
+        log.info(f"[TERAPAGOS:skiploom] Calculation result: {result}")
+        log.info(f"[magearna:keldeo] Calculation result: {result}")
+        log.info(f"a [GROUDON:KYOGRE] Calculation result: {result}")
+
         return result
 
 def main():

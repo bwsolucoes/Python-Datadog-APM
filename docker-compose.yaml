@@ -22,11 +22,12 @@ services:
   datadog-agent:
     image: gcr.io/datadoghq/agent:latest
     environment:
-      - DD_API_KEY=31a267f2581b0bc802203c8133ad8a2f
+      - DD_API_KEY=31a267f2581b0bc802203c8133ad8a2f # API Key de exemplo
       - DD_APM_ENABLED=true
       - DD_LOGS_ENABLED=true
       - DD_LOGS_CONFIG_CONTAINER_COLLECT_ALL=true
       - DD_APM_REPLACE_TAGS=[{"name":"error.stack","pattern":"\\(Array, [\\s\\S]*?, Array\\)","repl":"(Array, [Sensitive Data Redacted], Array"}]
+      - DD_LOGS_CONFIG_PROCESSING_RULES=[{"type":"exclude_at_match","name":"exclude_unused_logs","pattern":"^\\[[^\\]]+:[^\\]]+\\]"}]
       - DD_PROCESS_AGENT_ENABLED=true
       - DD_APM_NON_LOCAL_TRAFFIC=true
       - DD_HOSTNAME=datadog-agent
